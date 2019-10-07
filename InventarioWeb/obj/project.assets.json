@@ -12779,11 +12779,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jbautista.DPH\\Documents\\Visual Studio 2017\\Projects\\InventarioWeb\\InventarioWeb\\InventarioWeb.csproj",
+      "projectUniqueName": "C:\\Users\\jbautista.DPH\\Documents\\GitHub\\InventarioWeb\\InventarioWeb\\InventarioWeb.csproj",
       "projectName": "InventarioWeb",
-      "projectPath": "C:\\Users\\jbautista.DPH\\Documents\\Visual Studio 2017\\Projects\\InventarioWeb\\InventarioWeb\\InventarioWeb.csproj",
+      "projectPath": "C:\\Users\\jbautista.DPH\\Documents\\GitHub\\InventarioWeb\\InventarioWeb\\InventarioWeb.csproj",
       "packagesPath": "C:\\Users\\jbautista.DPH\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jbautista.DPH\\Documents\\Visual Studio 2017\\Projects\\InventarioWeb\\InventarioWeb\\obj\\",
+      "outputPath": "C:\\Users\\jbautista.DPH\\Documents\\GitHub\\InventarioWeb\\InventarioWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
