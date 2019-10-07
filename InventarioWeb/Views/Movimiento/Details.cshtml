@@ -1,0 +1,89 @@
+﻿@model InventarioWeb.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movimiento</h2>
+<h4>Detalle</h4>
+<dl>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.IdMovimiento)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.IdMovimiento)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Fecha)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Fecha)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Tipo)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Tipo)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Estado)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Estado)
+    </dd>
+</dl>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Articulo</th>
+            <th>Almacen</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MovimientoDets)
+        {
+            string selectedRow = "";
+            if (item.IdMovimiento == (int?)ViewData["IdMovimiento"])
+            {
+                selectedRow = "success";
+            }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Articulo.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Almacen.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            @*<td>
+            @{
+                foreach (var movimientodet in item.Articulo)
+                {
+                    @movimientodet.arCourse.CourseID @:  @course.Course.Title <br />
+                }
+            }
+        </td>
+        <td>
+            <a asp-action="Index" asp-route-id="@item.IdMovimientoDet">Select</a> |
+            <a asp-action="Edit" asp-route-id="@item.IdMovimientoDet">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.IdMovimientoDet">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.IdMovimientoDet">Delete</a>
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-primary"><i class="fa fa-table"></i> Atras</a>
+
+

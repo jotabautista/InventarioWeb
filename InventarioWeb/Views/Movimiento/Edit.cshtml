@@ -1,0 +1,87 @@
+﻿@model InventarioWeb.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movimiento</h2>
+<h4>Actualizar</h4>
+
+<hr />
+@using (Html.BeginForm("Edit", "Movimiento"))
+{
+    @Html.ValidationSummary()
+
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdMovimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMovimiento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.EditorFor(model => model.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.EditorFor(model => model.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.EditorFor(model => model.Estado)
+        </dd>
+    </dl>
+    <p>
+        <a asp-action="Create" asp-controller="MovimientoDet" asp-route-id="@ViewBag.IdMovimiento">Agregar</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Articulo</th>
+                <th>Almacen</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MovimientoDets)
+            {
+                string selectedRow = "";
+                if (item.IdMovimiento == (int?)ViewData["IdMovimiento"])
+                {
+                    selectedRow = "success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Articulo.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Almacen.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <a asp-controller="MovimientoDet" asp-action="Edit" asp-route-id="@item.IdMovimientoDet">Edit</a> |
+                        <a asp-controller="MovimientoDet" asp-action="Delete" asp-route-id="@item.IdMovimientoDet">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <input type="submit" value="Actualizar" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-secondary"><i class="fa fa-table"></i> Atras</a>
+
+}
